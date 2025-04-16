@@ -15,10 +15,10 @@ delito_interesse = [
 df = df[df['delito'].isin(delito_interesse)]
 
 # Agrupar por ano e tipo de delito e somar as contagens
-df_grouped = df.groupby(['ano', 'delito'])['contagem_delito'].sum().reset_index()
+df_grouped = df.groupby(['ano', 'delito'])['populacao'].sum().reset_index()
 
 # Pivotar os dados para o gráfico
-df_pivot = df_grouped.pivot(index='ano', columns='delito', values='contagem_delito')
+df_pivot = df_grouped.pivot(index='ano', columns='delito', values='populacao')
 
 # Plotar gráfico de linhas
 plt.figure(figsize=(14, 7))
